@@ -1,9 +1,10 @@
-if ENV['RACK_ENV'] === 'test' || ENV['RACK_ENV'] === 'development'
-  require 'dotenv/load'
-end
+
 require 'sucker_punch'
 require 'sinatra'
 require 'mail'
+unless Sinatra::Base.production?
+  require 'dotenv/load'
+end
 require_relative 'config'
 require_relative 'notification_service'
 require_relative 'rule'

@@ -65,16 +65,16 @@ class RuleTest < MiniTest::Test
     assert !rule.match?(lock_event)
   end
 
-  def test_author_email_filter
+  def test_actor_email_filter
     user1_event = {
-      author_email: 'user1@email.com'
+      actor_email: 'user1@email.com'
     }
     user2_event = {
-      author_email: 'user2@email.com'
+      actor_email: 'user2@email.com'
     }
 
     rule = Rule.new(filters: {
-      author_email: 'user1@email.com'
+      actor_email: 'user1@email.com'
     })
 
     assert rule.match?(user1_event)

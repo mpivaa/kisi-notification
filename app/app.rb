@@ -1,4 +1,6 @@
-require 'dotenv/load'
+if ENV['RACK_ENV'] === 'test' || ENV['RACK_ENV'] === 'development'
+  require 'dotenv/load'
+end
 require 'sucker_punch'
 require 'sinatra'
 require 'mail'

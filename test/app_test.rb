@@ -1,6 +1,6 @@
-require 'test/test_helper.rb'
+require './test/test_helper'
 
-class AppTest < MiniTest::Unit::TestCase
+class AppTest < MiniTest::Test
   include Rack::Test::Methods
 
   def app
@@ -8,8 +8,13 @@ class AppTest < MiniTest::Unit::TestCase
   end
 
   def test_incoming_event
-    post '/events', Fixtures.event_payload
+    post '/events', JSON.dump(Fixtures.event_payload)
     assert last_response.ok?
-    assert_equal "Hello, World!", last_response.body
+  end
+
+  def test_bad_incoming_event
+    assert_raises do
+      post '/events' 
+    end
   end
 end

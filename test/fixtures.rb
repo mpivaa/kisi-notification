@@ -1,4 +1,6 @@
-class Fixtures
+module Fixtures
+  extend self
+
   def event_payload
     {
       "actor_type": "User",
@@ -6,7 +8,7 @@ class Fixtures
       "action": "unlock",
       "object_type": "Lock",
       "object_id": 1,
-      "success": "true",
+      "success": true,
       "code": "ffffff",
       "message": "carl@kisi.io unlocked lock Entrance Door",
       "references": [

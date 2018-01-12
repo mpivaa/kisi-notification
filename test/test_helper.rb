@@ -1,6 +1,10 @@
 ENV['RACK_ENV'] = 'test'
 require 'minitest/autorun'
 require 'rack/test'
-require './fixtures'
+require './test/fixtures'
+require './app/app'
+require 'sucker_punch/testing/inline'
 
-# require File.expand_path '../app.rb', __FILE__
+Mail.defaults do
+  delivery_method :test
+end

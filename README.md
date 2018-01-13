@@ -10,6 +10,13 @@ Configure environment variables in `.env` file
 cp .env.sample .env
 ```
 
+For testing purposes, this config can be used
+```sh
+FROM_EMAIL='notification@getkisi.com'
+SMTP_USERNAME='app85492888@heroku.com'
+SMTP_PASSWORD='vimi1cfd5142'
+```
+
 Run the app
 ```sh
 ruby app/app.rb
